@@ -1,15 +1,15 @@
 #megoldas
-def eredmeny(jatokosPontja,gepPontja):
-    if pOsszeg(jatokosPontja) > 21:
+def eredmeny( jPontja: list[int] , gPontja: list[int] ):
+    if pOsszeg(jPontja) > 21:
         return "Játékos nyert"
-    elif pOsszeg(gepPontja) > 21:
+    elif pOsszeg(gPontja) > 21:
         return "Játékos vesztet"
 
-def pOsszeg(lista):
+def pOsszeg(lista: list[int]):
     i = 0
     pontosszeg = 0
     while i < len(lista):
         pontosszeg += lista[i]
-        i+=1
+        i += 1
     return pontosszeg
 #tesztek
