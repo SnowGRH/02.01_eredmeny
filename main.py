@@ -98,6 +98,8 @@ def tesztek():
     gep_vesztett_teszt1()
     gep_vesztett_teszt2()
     gep_vesztett_teszt3()
+    dontetlen_teszt1()
+    dontetlen_teszt2()
 
 
 tesztek()
