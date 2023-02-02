@@ -1,9 +1,33 @@
 #megoldas
 def eredmeny( jPontja: list[int] , gPontja: list[int] ):
-    if pOsszeg(jPontja) > 21:
-        return "Játékos vesztett"
-    elif pOsszeg(gPontja) > 21:
-        return "Játékos vesztett"
+    jPont = pOsszeg(jPontja)
+    gPont = pOsszeg(gPontja)
+    jLap = len(jPontja)
+    gLap = len(gPontja)
+    ki = ""
+
+    if (jPont <= 21) and (gPont <= 21):
+        if gPont < jPont:
+            ki = "Gép vesztett"
+        elif jPont > gPont:
+            ki = "Játékos vesztett"
+        elif jPont == gPont:
+            if jLap > gLap:
+                ki = "Játékos vesztett"
+            elif jLap < gLap:
+                ki= "Gép vesztett"
+            else:
+                ki = "Döntetlen"
+    else:
+        if gPont > 21:
+            ki = "Gép vesztett"
+        elif jPont >21:
+            ki = "Játékos vesztett"
+        elif jPont > 21 and gPont > 21:
+            ki = "Döntetlen"
+    return ki
+
+
 
 def pOsszeg(lista: list[int]):
     i = 0
@@ -15,10 +39,10 @@ def pOsszeg(lista: list[int]):
 #tesztek
 
 def jatekos_vesztett_teszt1():
-    jLapok =[10,5,6]
+    jLapok =[10,6,6]
     gLapok = [2,7]
     kapott = eredmeny(jLapok,gLapok)
-    vart ="jatekos_vesztett_teszt"
+    vart = "Játékos vesztett"
     if kapott == vart:
         print( "jatekos_vesztett_teszt1 sikeres")
     else:
@@ -28,7 +52,7 @@ def jatekos_vesztett_teszt2():
     jLapok =[10,3,11]
     gLapok = [5,11]
     kapott = eredmeny(jLapok,gLapok)
-    vart ="jatekos_vesztett_tulocsrult_teszt"
+    vart ="Játékos vesztett"
     if kapott == vart:
         print( "jatekos_vesztett_teszt2 sikeres")
     else:
@@ -37,7 +61,7 @@ def jatekos_vesztett_teszt3():
     jLapok =[5,6]
     gLapok = [6,10]
     kapott = eredmeny(jLapok,gLapok)
-    vart ="jatekos_vesztett_magasab_teszt"
+    vart ="Játékos vesztett"
     if kapott == vart:
         print( "jatekos_vesztett_teszt3 sikeres")
     else:
@@ -46,7 +70,7 @@ def gep_vesztett_teszt1():
     jLapok =[10,11]
     gLapok = [8,5,6]
     kapott = eredmeny(jLapok,gLapok)
-    vart ="Gep_vesztett_21j_teszt"
+    vart ="Gép vesztett"
     if kapott == vart:
         print( "Gep_vesztett_teszt1 sikeres")
     else:
@@ -56,7 +80,7 @@ def gep_vesztett_teszt2():
     jLapok =[10,5]
     gLapok = [8,5]
     kapott = eredmeny(jLapok,gLapok)
-    vart ="Gep_vesztett_kissebbbbb_teszt"
+    vart ="Gép vesztett"
     if kapott == vart:
         print( "Gep_vesztett_teszt2 sikeres")
     else:
@@ -67,7 +91,7 @@ def gep_vesztett_teszt3():
     jLapok =[10,8]
     gLapok = [8,10,10]
     kapott = eredmeny(jLapok,gLapok)
-    vart ="Gep_vesztett_tulcsordult_teszt"
+    vart ="Gép vesztett"
     if kapott == vart:
         print( "Gep_vesztett_teszt3 sikeres")
     else:
@@ -77,7 +101,7 @@ def dontetlen_teszt1():
     jLapok =[11,11]
     gLapok = [11,11]
     kapott = eredmeny(jLapok,gLapok)
-    vart ="Gep_vesztett_tulcsordult_teszt"
+    vart ="Döntetlen"
     if kapott == vart:
         print( "dontetlen_teszt3 sikeres")
     else:
@@ -86,7 +110,7 @@ def dontetlen_teszt2():
     jLapok =[10,10]
     gLapok = [10,10]
     kapott = eredmeny(jLapok,gLapok)
-    vart ="dontetlen_teszt"
+    vart ="Döntetlen"
     if kapott == vart:
         print( "dontetlen_teszt3 sikeres")
     else:
