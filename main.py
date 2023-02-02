@@ -9,7 +9,7 @@ def eredmeny( jPontja: list[int] , gPontja: list[int] ):
     if (jPont <= 21) and (gPont <= 21):
         if gPont < jPont:
             ki = "Gép vesztett"
-        elif jPont > gPont:
+        elif jPont < gPont:
             ki = "Játékos vesztett"
         elif jPont == gPont:
             if jLap > gLap:
@@ -21,9 +21,9 @@ def eredmeny( jPontja: list[int] , gPontja: list[int] ):
     else:
         if gPont > 21:
             ki = "Gép vesztett"
-        elif jPont >21:
+        if jPont >21:
             ki = "Játékos vesztett"
-        elif jPont > 21 and gPont > 21:
+        if jPont > 21 and gPont > 21:
             ki = "Döntetlen"
     return ki
 
@@ -103,18 +103,18 @@ def dontetlen_teszt1():
     kapott = eredmeny(jLapok,gLapok)
     vart ="Döntetlen"
     if kapott == vart:
-        print( "dontetlen_teszt3 sikeres")
+        print( "dontetlen_teszt1 sikeres")
     else:
-        print( "dontetlen_teszt3 megbukott")
+        print( "dontetlen_teszt1 megbukott")
 def dontetlen_teszt2():
     jLapok =[10,10]
     gLapok = [10,10]
     kapott = eredmeny(jLapok,gLapok)
     vart ="Döntetlen"
     if kapott == vart:
-        print( "dontetlen_teszt3 sikeres")
+        print( "dontetlen_teszt2 sikeres")
     else:
-        print( "dontetlen_teszt3 megbukott")
+        print( "dontetlen_teszt2 megbukott")
 def tesztek():
     jatekos_vesztett_teszt1()
     jatekos_vesztett_teszt2()
